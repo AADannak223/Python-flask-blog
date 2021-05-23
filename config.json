@@ -1,0 +1,29 @@
+{
+  "params":
+  {
+    "local_server": "True",
+    "local_uri": "mysql://root:@app.route@127.0.0.1/we_are_programmers",
+    "prod_uri": "mysql://root:@app.route@127.0.0.1/we_are_programmers",
+    "fb_url": "https://facebook.com/Weareprogrammers",
+    "tw_url": "https://twitter.com/Weareprogrammers",
+    "gh_url": "https://github.com/Weareprogrammers",
+    "blog_name": "Programmers blog",
+    "tag_line": "Blog liked by programmers",
+    "gmail_username": "omkardannak2003@gmail.com",
+    "gmail_password": "Anita@2452000",
+    "admin_gmail_username": "omkardannak24@gmail.com",
+    "support_mail_body": "Thanks for contacting us",
+    "about_text": "Hii my name is omkar and this my first block, and i am very happy to give you the information about techonologies",
+    "no_of_posts": 2,
+    "login_image": "login.svg",
+    "admin_user": "omkardannak24@gmail.com",
+    "admin_password": "adiraj123",
+    "upload_location": "static/uploads"
+  }
+
+
+
+
+
+
+}
