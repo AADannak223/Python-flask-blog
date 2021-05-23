@@ -1,3 +1,4 @@
+# Basic imports
 from flask import Flask, render_template, request, abort, session, redirect
 from flask_sqlalchemy import SQLAlchemy
 from flask_mail import Mail  # to send email through flask
