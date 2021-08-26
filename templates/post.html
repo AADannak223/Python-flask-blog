@@ -2,7 +2,7 @@
 {% block body %}
 
  <!-- Page Header -->
- {% set fname = 'img/' + post.img_file %}
+ {% set fname = 'uploads/' + post.img_file %}
    <header class="masthead" style="background-image: url('{{ url_for('static', filename=fname) }}"> 
     <div class="overlay"></div>
     <div class="container">
@@ -19,83 +19,17 @@
       </div>
     </div>
   </header>
-  
-  
-
   <!-- Post Content -->
   <article>
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
-          <p>{{post.content}}</p>
+         <p>{{post.content}}</p>
         </div>
       </div>
     </div>
   </article>
-  <hr>
-
-        
-  
-<section class="masthead" id="comments">
-  <link href="{{url_for('static', filename= 'css/comment.css')}}" rel="stylesheet">
-    <div class="container">   
-      <div class="row">
-            <div class="col-sm-8">   
-                <form>
-                  <h3 class="pull-left">New Comment</h3>
-                  <button type="submit" class="btn btn-normal pull-right">Submit</button>
-                    <fieldset>
-                        <div class="row">
-                            <div class="form-group col-xs-12 col-sm-9 col-lg-10">
-                                <textarea class="form-control" id="message" placeholder="Type your comment here" required=""></textarea>
-                            </div>
-                        </div>    
-                    </fieldset>
-                </form>
-                </div>
-        </div>
-    </div>
-</section>
-                
-  
-                
-                <!-- COMMENT 1 - START -->
-                <link href="{{url_for('static', filename= 'css/comments.css')}}" rel="stylesheet">
-    <section class="row d-flex justify-content-center mt-100 mb-100">
-    <div class="col-lg-6">
-        <div class="card">
-            <div class="card-body text-center">
-                <h4 class="card-title">Latest Comments</h4>
-            </div>
-            <div class="comment-widgets">
-                <!-- Comment Row -->
-                <div class="d-flex flex-row comment-row m-t-0">
-                    <div class="p-2"><img src="https://i.imgur.com/Ur43esv.jpg" alt="user" width="50" class="rounded-circle"></div>
-                    <div class="comment-text w-100">
-                        <h6 class="font-medium">James Thomas</h6> <span class="m-b-15 d-block">This is awesome website. I would love to comeback again. </span>
-                        <div class="comment-footer"> <span class="text-muted float-right">April 14, 2019</span> <button type="button" class="btn btn-cyan btn-sm">Edit</button> <button type="button" class="btn btn-success btn-sm">Publish</button> <button type="button" class="btn btn-danger btn-sm">Delete</button> </div>
-                    </div>
-                </div> <!-- Comment Row -->
-                <div class="d-flex flex-row comment-row">
-                    <div class="p-2"><img src="https://i.imgur.com/8RKXAIV.jpg" alt="user" width="50" class="rounded-circle"></div>
-                    <div class="comment-text active w-100">
-                        <h6 class="font-medium">Michael Hussey</h6> <span class="m-b-15 d-block">Thanks bbbootstrap.com for providing such useful snippets. </span>
-                        <div class="comment-footer"> <span class="text-muted float-right">May 10, 2019</span> <button type="button" class="btn btn-cyan btn-sm">Edit</button> <button type="button" class="btn btn-success btn-sm">Publish</button> <button type="button" class="btn btn-danger btn-sm">Delete</button> </div>
-                    </div>
-                </div> <!-- Comment Row -->
-                <div class="d-flex flex-row comment-row">
-                    <div class="p-2"><img src="https://i.imgur.com/J6l19aF.jpg" alt="user" width="50" class="rounded-circle"></div>
-                    <div class="comment-text w-100">
-                        <h6 class="font-medium">Johnathan Doeting</h6> <span class="m-b-15 d-block">Great industry leaders are not the real heroes of stock market. </span>
-                        <div class="comment-footer"> <span class="text-muted float-right">August 1, 2019</span> <button type="button" class="btn btn-cyan btn-sm">Edit</button> <button type="button" class="btn btn-success btn-sm">Publish</button> <button type="button" class="btn btn-danger btn-sm">Delete</button> </div>
-                    </div>
-                </div>
-            </div> <!-- Card -->
-        </div>
-    </div>
-</section>        <!-- COMMENT 4 - END -->
-            
-            
+  <hr>           
 
   <!-- Footer -->
 
