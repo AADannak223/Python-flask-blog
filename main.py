@@ -1,3 +1,4 @@
+# Basic imports required for the service to run.
 from flask import Flask, render_template, request, abort, session, redirect
 from flask_sqlalchemy import SQLAlchemy
 from flask_mail import Mail  # to send email through flask
@@ -92,7 +93,7 @@ def home():
 @app.route("/post/<string:post_slug>", methods=['get'])
 def post_route(post_slug):
     print("this is my slug: " + post_slug)
-    # post = Posts.query.filter_by(slug=post_slug).first()
+
     post = Posts.query.filter_by(slug=post_slug).first()
     # print(post)
 
@@ -126,6 +127,9 @@ def contact():
         phone = request.form.get('phone')
         massage = request.form.get('massage')
 
+        # if bool(email) == False or bool(name) == False or bool(phone) == False or bool(massage) == False:
+        #     return render_template('contact.html', params=params)
+
         entry = Contacts(name=name, phone_num=phone, msg=massage, email=email,
                          date=datetime.now())  # LHS is a column of our database and RHS is input taken from user
         db.session.add(entry)
@@ -150,10 +154,13 @@ def dashboard():
     if request.method == 'POST':
         username = request.form.get('uname')
         password = request.form.get("pass")
-        # print(username)
-        # print(password)
+        chackbox = request.form.get("checkbox")
+        
+        
         if username == params['admin_user'] and password == params['admin_password']:
-            session['user'] = username
+            if chackbox == "true":
+                print(chackbox)
+                session['user'] = username
             posts = Posts.query.all()
             return render_template('dashboard.html', params=params, posts=posts)
 
@@ -167,13 +174,20 @@ def edit(sno):
             box_title = request.form.get('title')
             subtitle = request.form.get('subtitle')
             slug = request.form.get('slug')
+           
             content = request.form.get('content')
-            # img_file = request.form.get('img_file')
+            img_file = request.form.get('img_file')
             date = datetime.now()
             f = request.files['file1']
             f.save(os.path.join(app.config['UPLOAD_FOLDER'], secure_filename(f.filename)))
             img_file = secure_filename(f.filename)
-            print(img_file)
+            # post = Posts.query.all
+
+
+            if bool(img_file) == False:
+                post = Posts.query.filter_by(sno=sno).first()
+                img_file = post.img_file
+
 
             if sno == '0':
                 p1 = Posts(title=box_title, subtitle=subtitle, slug=slug, content=content, img_file=img_file,
@@ -213,4 +227,4 @@ def delete(sno):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0')
